@@ -11,10 +11,25 @@
   <div class="container">
     <form id="triform">
       <div class="form-group">
-        <label for ="inputA">First side</label>
-        <input id ="sidea" class="form-control" type="text">
+        <label for ="inputA">First side <strong>(A)</strong></label>
+        <input id ="sideA" class="form-control" type="text">
       </div>
+      <div class="form-group">
+        <label for ="inputB">second side <strong>(B)</strong></label>
+        <input id ="sideB" class="form-control" type="text">
+      </div>
+      <div class="form-group">
+        <label for ="inputC">Third side <strong>(C)</strong></label>
+        <input id ="sideC" class="form-control" type="text">
+      </div>
+      <button class="btn btn-danger" type="submit">TRI it out!</button>
     </form>
+    <div id="resultOutput">
+      <p> Your Triangle is <span id="triName"></span></p>
+    </div>
+    <div id="triFail">
+      <p> Are you sure this is a triangle?</p>
+    </div>
   </div>
 </body>
 </html>
