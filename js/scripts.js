@@ -8,8 +8,25 @@ function equi(A, B, C){
   }
 }
 
+function iso(A, B, C){
+  if (A === B || B === C){
+    return true
+  }
+  else {
+    return false
+  }
+}
+function scal(A, B, C){
+  if (A !== B && A !==C && C !== B){
+    return true
+  }
+  else {
+    return false
+  }
+}
+
 function triYes(A, B, C){
-  if (A + B >= C && B + C >= A && A + C >=B){
+  if (A + B > C && B + C > A && A + C >B){
     return true
   }
   else{
@@ -20,41 +37,29 @@ function triYes(A, B, C){
 
 // User Interface Logic
 $(document).ready(function(){
-  $("form#triForm").submit(function(){
+  $("form#triform").submit(function(){
     event.preventDefault();
     const A = parseInt($("#sideA").val());
     const B = parseInt($("#sideB").val());
     const C = parseInt($("#sideC").val());
+    $("#resultOutput").show();
+    $("#triFail").hide();
 
-    
+    if (triYes(A,B,C)){
+      if (equi (A,B,C)) {
+        $("#triName").text("An Equilateral triangle");
+      } 
+      else if (iso(A,B,C)) {
+        $("#triName").text("An Isosceles triangle");
+      }
+      else if (scal(A,B,C)){
+          $("#triName").text("a Scalene triangle");
+      }
+    }
+    else {
+      $("#resultOutput").hide();
+      $("#triFail").show();
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // if (A === B && A === C){
-    //   $("#triName").text("Equilateral");
-    //   $("#resultOutput").show();
-    // }
-    // else {
-    //   $("#resultOutput").hide();
-    //   $("#triFail").show();
-    // }
-    // else if (A === B || A === C || B === C){
-    //   $("#triName").text("Isosceles")
-    // }
-    // else (A + B !== C || A + C !== B || B + C !== A) 
-    //   $("#resultOutput").hide();
-    //   $("#triFail").show();
-    
     });
   });
